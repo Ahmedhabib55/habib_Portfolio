@@ -2,20 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* @import url("../styles/theme.css"); */
+
+/* Custom Scrollbar Styles */
+@layer base {
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #121212;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #292929;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3d3d3d;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #292929 #121212;
+  }
+}
+body {
+  /* font-family: "Outfit", sans-serif; */
+  font-family: var(--font-outfit);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #121212;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .h2_text-white {
+    @apply text-[28px] font-normal leading-[1.2em] text-white;
+  }
+  /* H1 Styles */
+  .h1-bold {
+    @apply text-3xl font-bold leading-[24px] text-white;
+  }
+
+  .h1-normal {
+    @apply text-3xl font-normal leading-[24px] text-white;
+  }
+
+  .h1-semibold {
+    @apply text-3xl font-semibold leading-[24px] text-white;
+  }
+
+  /* H2 Styles */
+  .h2-bold {
+    @apply text-xl font-bold leading-[24px] text-white;
+  }
+
+  .h2-normal {
+    @apply text-2xl font-normal leading-[24px] text-white;
+  }
+
+  .h2-semibold {
+    @apply text-2xl font-semibold leading-[24px] text-white;
+  }
+
+  /* H3 Styles */
+  .h3-bold {
+    @apply text-xl font-bold leading-[24px] text-white;
+  }
+
+  .h3-normal {
+    @apply text-xl font-normal leading-[24px] text-white;
+  }
+
+  .h3-semibold {
+    @apply text-xl font-semibold leading-[24px] text-white;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+
+  .border-solid_medium-gray {
+    border: 1px solid #292929;
+  }
+
+  .bg-black_hover-gray {
+    @apply bg-[#121212] hover:bg-[#292929];
+  }
+  .border_link-gray {
+    @apply border-b border-solid border-[#292929] border-x-transparent;
+  }
+
+  .border_top_bottom-gray {
+    @apply border-t border-b border-solid border-[#292929] border-x-transparent;
+  }
+
+  .primary-gradient {
+    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  }
+  .no-focus {
+    @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+  }
+  /* 
+  .base-medium {
+    @apply text-[18px] font-medium leading-[25.2px];
+  }
+
+  .base-semibold {
+    @apply text-[18px] font-semibold leading-[25.2px];
+  }
+
+  .base-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .paragraph-regular {
+    @apply text-[16px] font-normal leading-[22.4px];
+  }
+
+  .paragraph-medium {
+    @apply text-[16px] font-medium leading-[22.4px];
+  }
+
+  .paragraph-semibold {
+    @apply text-[16px] font-semibold leading-[20.8px];
+  }
+
+  .body-regular {
+    @apply text-[14px] font-normal leading-[19.6px];
+  }
+
+  .body-medium {
+    @apply text-[14px] font-medium leading-[18.2px];
+  }
+
+  .body-semibold {
+    @apply text-[14px] font-semibold leading-[18.2px];
+  }
+
+  .small-regular {
+    @apply text-[12px] font-normal leading-[15.6px];
+  }
+
+  .small-medium {
+    @apply text-[12px] font-medium leading-[15.6px];
+  }
+
+  .small-semibold {
+    @apply text-[12px] font-semibold leading-[15.6px];
+  }
+
+  .subtle-medium {
+    @apply text-[10px] font-medium leading-[13px] !important;
+  }
+
+  .subtle-regular {
+    @apply text-[10px] font-normal leading-[13px];
+  } */
+
+  .primary-gradient {
+    background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  }
 }
