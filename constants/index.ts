@@ -12,19 +12,19 @@ interface PersonalInfoProps {
 export const sidebarLinks: SidebarLinksProps[] = [
   {
     id: "1",
-    imgURL: "/assets/icons/home.svg",
+    imgURL: "/assets/Icons/home.svg",
     route: "/",
     label: "Home",
   },
   {
     id: "2",
-    imgURL: "/assets/icons/suitcase.svg",
+    imgURL: "/assets/Icons/suitcase.svg",
     route: "/work",
     label: "work",
   },
   {
     id: "3",
-    imgURL: "/assets/icons/user.svg",
+    imgURL: "/assets/Icons/user.svg",
     route: "/about",
     label: "About",
   },

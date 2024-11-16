@@ -36,7 +36,7 @@ const page = () => {
             <li className="rounded-sm border border-[#292929] bg-[#121212] p-2 hover:bg-[#292929]">
               <a href="https://github.com/Ahmedhabib55" target="_blank">
                 <Image
-                  src={"/assets/icons/github-svgrepo-com.svg"}
+                  src={"/assets/Icons/github-svgrepo-com.svg"}
                   alt="github"
                   width={24}
                   height={24}
@@ -49,7 +49,7 @@ const page = () => {
                 target="_blank"
               >
                 <Image
-                  src={"/assets/icons/linkedin-svgrepo-com.svg"}
+                  src={"/assets/Icons/linkedin-svgrepo-com.svg"}
                   alt="linkedin"
                   width={24}
                   height={24}
@@ -59,7 +59,7 @@ const page = () => {
             <li className="rounded-sm border border-[#292929] bg-[#121212] p-2 hover:bg-[#292929]">
               <a href="https://x.com/ahmed_H_habib" target="_blank">
                 <Image
-                  src={"/assets/icons/twitter-svgrepo-com.svg"}
+                  src={"/assets/Icons/twitter-svgrepo-com.svg"}
                   alt="twitter"
                   width={24}
                   height={24}
