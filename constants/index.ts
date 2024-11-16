@@ -1,4 +1,5 @@
 interface SidebarLinksProps {
+  id: string;
   imgURL: string;
   route: string;
   label: string;
@@ -10,22 +11,26 @@ interface PersonalInfoProps {
 }
 export const sidebarLinks: SidebarLinksProps[] = [
   {
+    id: "1",
     imgURL: "/assets/icons/home.svg",
     route: "/",
     label: "Home",
   },
   {
+    id: "2",
     imgURL: "/assets/icons/suitcase.svg",
     route: "/work",
     label: "work",
   },
   {
+    id: "3",
     imgURL: "/assets/icons/user.svg",
     route: "/about",
     label: "About",
   },
   {
-    imgURL: "/assets/icons/message.svg",
+    id: "4",
+    imgURL: "/assets/icons/id-card.png",
     route: "/contact",
     label: "contact",
   },

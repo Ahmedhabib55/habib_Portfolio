@@ -9,7 +9,8 @@ function FeaturedWork() {
     <section className="mt-16">
       <HeaderTwo text="Featured Work" />
 
-      <div className=" flex justify-between items-center gap-5 mb-10">
+      {/* <div className=" mb-10 flex flex-wrap justify-between  "> */}
+      <div className=" mb-10 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap xl:justify-between ">
         {FeaturedWorkData.map((work) => (
           <FeaturedWorkCard
             key={work.id}

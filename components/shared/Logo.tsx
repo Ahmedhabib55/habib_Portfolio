@@ -5,7 +5,7 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="text-6xl text-white hover:text-primary-100 relative z-50"
+      className=" relative text-6xl text-white hover:text-primary-100"
     >
       H
     </Link>

@@ -1,16 +1,10 @@
 import FeaturedWork from "@/components/shared/FeaturedWork";
-import Logo from "@/components/shared/Logo";
-import MobileNavbar from "@/components/shared/MobileNavbar";
 import Image from "next/image";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full z-50 lg:hidden md:hidden flex items-center justify-between px-6 bg-white-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 ">
-        <Logo />
-        <MobileNavbar />
-      </nav>
       <header className="mb-14 flex items-center justify-between">
         <Image
           src={"/assets/images/habib-test.jpg"}
