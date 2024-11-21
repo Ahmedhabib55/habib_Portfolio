@@ -30,12 +30,11 @@ export const sidebarLinks: SidebarLinksProps[] = [
   },
   {
     id: "4",
-    imgURL: "/assets/icons/id-card.png",
+    imgURL: "/assets/Icons/id-card.png",
     route: "/contact",
     label: "contact",
   },
 ];
-// personalInfo.map((detail)
 export const PersonalInfo: PersonalInfoProps[] = [
   {
     title: "Coding Philosophy",

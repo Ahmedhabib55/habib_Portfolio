@@ -32,6 +32,21 @@ const config: Config = {
         "light-gray": "rgb(128, 128, 128)",
         "active-green": "rgb(3, 226, 107)",
       },
+      keyframes: {
+        fadeInUp: {
+          from: {
+            opacity: "0",
+            transform: "translate3d(0, 100%, 0)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+      },
+      animation: {
+        fadeInUp: "fadeInUp 0.6s ease-out",
+      },
     },
   },
   plugins: [],
