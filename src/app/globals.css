@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url("../styles/theme.css"); */
-
 /* Custom Scrollbar Styles */
 @layer base {
   ::-webkit-scrollbar-button {

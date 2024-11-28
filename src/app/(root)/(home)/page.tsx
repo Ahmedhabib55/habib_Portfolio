@@ -1,4 +1,3 @@
-import AnimationComponent from "@/components/AnimationComponent";
 import FeaturedWork from "@/components/shared/FeaturedWork";
 import Image from "next/image";
 import React from "react";
@@ -71,9 +70,9 @@ const page = () => {
         </div>
       </section>
       <section className="border_top_bottom-gray mt-10">
-        <AnimationComponent>
-          <FeaturedWork />
-        </AnimationComponent>
+        {/* <AnimationComponent> */}
+        <FeaturedWork />
+        {/* </AnimationComponent> */}
       </section>
     </div>
   );
