@@ -1,9 +1,15 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 function BackButton() {
+  const pathname = usePathname();
+
+  const pathSegments = pathname.split("/").filter(Boolean); // Remove empty strings
+  const parentPath = `/${pathSegments.slice(0, -1).join("/")}` || "/";
   return (
-    <Link href="">
+    <Link href={parentPath}>
       <button className="group flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +23,7 @@ function BackButton() {
             clipRule="evenodd"
           />
         </svg>
-        <span className="text-light-gray transition-all duration-300 group-hover:pl-1">
+        <span className="text-light-gray transition-all duration-300 group-hover:pl-1 group-hover:text-primary-100">
           Back
         </span>
       </button>

@@ -8,6 +8,7 @@ interface AnimatedButtonProps {
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   className?: string;
+  href?: string;
 }
 
 const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -18,6 +19,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   size = "md",
   disabled = false,
   className = "",
+  href,
 }) => {
   const baseStyles =
     "relative overflow-hidden transition-all duration-300 ease-in-out font-medium rounded-lg border-solid_medium-gray";

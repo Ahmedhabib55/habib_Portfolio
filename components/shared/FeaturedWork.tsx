@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderTwo from "./HeaderTwo";
+import HeaderOne from "./HeaderOne";
 import FeaturedWorkCard from "./FeaturedWorkCard";
 import { FeaturedWorkData } from "@/constants";
 import AnimatedButton from "./AnimatedButton";
@@ -8,7 +8,7 @@ import AnimationComponent from "../AnimationComponent";
 function FeaturedWork() {
   return (
     <section className="mt-16">
-      <HeaderTwo text="Featured Work" />
+      <HeaderOne text="Featured Work" />
 
       {/* <div className=" mb-10 flex flex-wrap justify-between  "> */}
       <div className=" mb-10 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap xl:justify-between ">
@@ -23,7 +23,7 @@ function FeaturedWork() {
           </AnimationComponent>
         ))}
       </div>
-      <AnimatedButton text="View All" size="lg" />
+      <AnimatedButton text="View All" size="lg" href="/work" />
     </section>
   );
 }

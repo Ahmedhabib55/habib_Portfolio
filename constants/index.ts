@@ -68,17 +68,23 @@ export const FeaturedWorkData = [
     img: "/assets/images/featured-work-1.png",
     type: "E-commerce",
     title: "ShopEase",
+    description:
+      "ShopEase is a digital platform that connects businesses with customers, making it easier to find and book products.",
   },
   {
     id: 2,
     img: "/assets/images/featured-work-2.png",
     type: "Social Media",
     title: "ConnectHub",
+    description:
+      "ConnectHub is a social media platform that connects people with their friends and family.",
   },
   {
     id: 3,
     img: "/assets/images/featured-work-3.png",
     type: "Health & Fitness",
     title: "FitTrack",
+    description:
+      "FitTrack is a health and fitness app that helps users track their progress and achieve their fitness goals.",
   },
 ];

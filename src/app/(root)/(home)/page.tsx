@@ -1,5 +1,6 @@
 import FeaturedWork from "@/components/shared/FeaturedWork";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -14,10 +15,13 @@ const page = () => {
           className="rounded-lg object-cover "
         />
 
-        <button className="flex size-fit items-center justify-center gap-2 rounded-md bg-active-green/5 px-5 py-2 font-light text-active-green  opacity-100 transition hover:bg-active-green/10">
+        <Link
+          href={"/contact"}
+          className="flex size-fit items-center justify-center gap-2 rounded-md bg-active-green/5 px-5 py-2 font-light text-active-green  opacity-100 transition hover:bg-active-green/10"
+        >
           <span className="size-2 rounded-full bg-active-green"></span>
           <span className="first-letter:uppercase"> open to work</span>
-        </button>
+        </Link>
       </header>
 
       <section className="animate-fadeInUp ">
