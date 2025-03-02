@@ -3,12 +3,12 @@ import BackButton from "@/components/shared/BackButton";
 import HeaderOne from "@/components/shared/HeaderOne";
 import React from "react";
 
-interface Props {
+interface PageProps {
   params: {
     name: string;
   };
 }
-const page = ({ params }: Props) => {
+const page = ({ params }: PageProps) => {
   const { name } = params;
   return (
     <div className="flex h-full flex-col  space-y-8">
