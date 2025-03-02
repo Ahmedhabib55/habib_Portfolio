@@ -1,5 +1,5 @@
 "use client";
-import { sendContactMessage } from "@/lib/actions/contact.action";
+import { sendContactMessage } from "../../../../lib/actions/contact.action";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -79,7 +79,7 @@ const ContactForm = () => {
           <h2 className="animate-[fade-in_0.5s_ease-out] text-2xl font-semibold text-white">
             Message Sent Successfully!
           </h2>
-          <p className="text-light-gray animate-[fade-in_0.5s_ease-out] text-center">
+          <p className="animate-[fade-in_0.5s_ease-out] text-center text-light-gray">
             Thank you for reaching out. I&apos;ll get back to you soon!
           </p>
         </div>
@@ -92,7 +92,7 @@ const ContactForm = () => {
       <h1 className="h1-semibold mb-3 leading-tight">
         Let&apos;s Work Together
       </h1>
-      <p className="text-light-gray text-sm">
+      <p className="text-sm text-light-gray">
         Whether you have a project in mind or just want to say hello, feel free
         to reach out at{" "}
         <Link
@@ -104,7 +104,7 @@ const ContactForm = () => {
         .
       </p>
       .
-      <div className="animate-fadeInUp mt-10">
+      <div className="mt-10 animate-fadeInUp">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
             <div className="relative w-full sm:w-[48%]">
@@ -120,7 +120,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="name"
-                className="text-light-gray absolute -top-3 left-4  rounded-lg px-2 text-sm transition-all
+                className="absolute -top-3 left-4 rounded-lg  px-2 text-sm text-light-gray transition-all
                peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black "
               >
                 Name
@@ -142,7 +142,7 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="email"
-                className="text-light-gray absolute -top-3  left-4 rounded-lg  px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+                className="absolute -top-3 left-4  rounded-lg px-2  text-sm text-light-gray transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
               >
                 Email
               </label>
@@ -164,7 +164,7 @@ const ContactForm = () => {
             />
             <label
               htmlFor="message"
-              className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+              className="absolute -top-3 left-4 rounded-lg px-2 text-sm text-light-gray transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
             >
               Message
             </label>
@@ -172,7 +172,7 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="bg-primary-100 hover:bg-primary-500 w-full rounded-lg px-6 py-3 text-black transition-colors"
+            className="w-full rounded-lg bg-primary-100 px-6 py-3 text-black transition-colors hover:bg-primary-500"
           >
             Send Message
           </button>
