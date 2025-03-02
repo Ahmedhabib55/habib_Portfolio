@@ -1,8 +1,8 @@
 "use server";
 import { Resend } from "resend";
-import ThankYouEmail from "../../components/emails/ThanksYouEmail";
-import ContactNotificationEmail from "../../components/emails/ContactNotificationEmail";
-import ThanksMail from "@/components/emails/ThanksMail";
+// import ThankYouEmail from "../../components/emails/ThanksYouEmail";
+// import ContactNotificationEmail from "../../components/emails/ContactNotificationEmail";
+// import ThanksMail from "@/components/emails/ThanksMail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

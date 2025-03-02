@@ -19,7 +19,6 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   size = "md",
   disabled = false,
   className = "",
-  href,
 }) => {
   const baseStyles =
     "relative overflow-hidden transition-all duration-300 ease-in-out font-medium rounded-lg border-solid_medium-gray";

@@ -71,7 +71,7 @@ const MobileNavbar = () => {
         <div className="py-4">
           <div className="border_link-gray p-8">
             <Link href="/">
-              <h3 className="h1-normal mb-1 whitespace-pre-wrap text-nowrap capitalize text-white delay-75 hover:text-primary-500 ">
+              <h3 className="h1_normal mb-1 whitespace-pre-wrap text-nowrap capitalize text-white delay-75 hover:text-primary-500 ">
                 Ahmed Habib
               </h3>
             </Link>
