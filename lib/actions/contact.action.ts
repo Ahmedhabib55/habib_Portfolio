@@ -1,8 +1,7 @@
 "use server";
 import { Resend } from "resend";
-// import ThankYouEmail from "../../components/emails/ThanksYouEmail";
-// import ContactNotificationEmail from "../../components/emails/ContactNotificationEmail";
-// import ThanksMail from "@/components/emails/ThanksMail";
+import ThankYouEmail from "../../components/emails/ThanksYouEmail";
+import ContactNotificationEmail from "../../components/emails/ContactNotificationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,9 +13,9 @@ export async function sendContactMessage(formData: FormData) {
     // Send thank-you email to the user
     await resend.emails.send({
       from: "Ahmed Habib <onboarding@resend.dev>",
-      to: email,
+      to: [email],
       subject: "Thanks for Contacting!",
-      react: `Thank you for contacting me!`,
+      react: ThankYouEmail({ name }),
     });
 
     // Send notification email to my mail
@@ -24,9 +23,7 @@ export async function sendContactMessage(formData: FormData) {
       from: "Ahmed Habib <onboarding@resend.dev>",
       to: "ahmedabdelrazik919@gmail.com",
       subject: "New Contact Form Submission",
-      react: `<p>Name: ${name}</p>
-      <p>Email: ${email}</p>
-      <p>Message: ${message}</p>`,
+      react: ContactNotificationEmail({ name, message, email }),
     });
 
     return { success: true };

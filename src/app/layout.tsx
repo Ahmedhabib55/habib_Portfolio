@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const outfit = Outfit({
   weight: ["100", "200", "300", "400"],
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable}`}>{children}</body>
+      <Analytics />
     </html>
   );
 }

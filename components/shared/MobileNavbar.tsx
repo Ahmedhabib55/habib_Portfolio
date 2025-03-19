@@ -71,11 +71,11 @@ const MobileNavbar = () => {
         <div className="py-4">
           <div className="border_link-gray p-8">
             <Link href="/">
-              <h3 className="h1_normal mb-1 whitespace-pre-wrap text-nowrap capitalize text-white delay-75 hover:text-primary-500 ">
+              <h1 className="hover:text-primary-500 mb-1 whitespace-pre-wrap text-nowrap text-[30px] font-normal capitalize leading-[1.1rem] text-white transition ">
                 Ahmed Habib
-              </h3>
+              </h1>
             </Link>
-            <span className="whitespace-pre-wrap text-base text-light-gray">
+            <span className="text-light-gray whitespace-pre-wrap text-base">
               Frontend Developer
             </span>
           </div>
@@ -84,7 +84,7 @@ const MobileNavbar = () => {
               href={item.route}
               onClick={handleLinkClick}
               key={item.id}
-              className="group  flex items-center border-y border-[#292929] px-4 py-3 transition hover:bg-hovered"
+              className="hover:bg-hovered  group flex items-center border-y border-[#292929] px-4 py-3 transition"
             >
               <div className="flex items-center space-x-4">
                 <Image

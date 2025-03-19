@@ -16,14 +16,14 @@ function layout({ children }: { children: React.ReactNode }) {
       <div className="fixed hidden h-screen flex-col  border-r border-solid border-[#292929] md:flex md:w-[50px] lg:w-[239px] ">
         <div className="border_link-gray md:p-4 lg:p-[32px] ">
           <Link href="/">
-            <h3 className="h1_normal mb-1 whitespace-pre-wrap text-nowrap capitalize text-white delay-75 hover:text-primary-500 md:hidden lg:block">
+            <h1 className="hover:text-primary-500 mb-1 whitespace-pre-wrap text-nowrap text-[30px] font-normal capitalize leading-[1.1rem] text-white transition md:hidden lg:block">
               Ahmed Habib
-            </h3>
-            <h1 className=" mb-8 ml-[-15px] text-6xl capitalize text-white delay-75 hover:text-primary-500 md:block lg:hidden ">
+            </h1>
+            <h1 className=" hover:text-primary-500 mb-8 ml-[-15px] text-6xl capitalize text-white delay-75 md:block lg:hidden ">
               H
             </h1>
           </Link>
-          <span className="whitespace-pre-wrap text-base  text-light-gray md:hidden lg:flex">
+          <span className="text-light-gray whitespace-pre-wrap  text-base md:hidden lg:flex">
             Frontend Developer
           </span>
         </div>
