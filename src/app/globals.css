@@ -228,3 +228,48 @@ input:-webkit-autofill:active {
     transform: translateY(0);
   }
 }
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px) translateX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(25%) translateX(0); /* Keep the 25% upward translation */
+    opacity: 1;
+  }
+}
+
+/* Animation utility classes */
+.animate-slide-right {
+  animation: slideRight 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Animation delay utility */
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Add more delay classes if needed */
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-700 {
+  animation-delay: 0.7s;
+}

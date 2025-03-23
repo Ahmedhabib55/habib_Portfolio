@@ -9,9 +9,9 @@ interface FeaturedWorkCardProps {
   img: string;
 }
 
-function FeaturedWorkCard({ title, type, img }: FeaturedWorkCardProps) {
+function FeaturedWorkCard({ id, title, type, img }: FeaturedWorkCardProps) {
   return (
-    <Link href={`/work/${title}`}>
+    <Link href={`/work/${id}`}>
       <article className="group w-[270px] min-w-[200px] flex-1 overflow-hidden ">
         <div className="h-[220px] w-full overflow-hidden rounded-md">
           <Image
@@ -24,7 +24,7 @@ function FeaturedWorkCard({ title, type, img }: FeaturedWorkCardProps) {
         </div>
         <div className="my-4">
           <p className="mb-2 text-sm text-gray-400">{type}</p>
-          <h3 className="h3-normal text-white transition-colors duration-300 group-hover:text-primary-500">
+          <h3 className="h3-normal group-hover:text-primary-500 text-white transition-colors duration-300">
             {title}
           </h3>
         </div>

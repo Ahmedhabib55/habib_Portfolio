@@ -14,6 +14,7 @@ const page = () => {
           width={120}
           height={150}
           className="rounded-lg object-cover "
+          priority
         />
 
         <Link

@@ -64,24 +64,28 @@ experience.`,
 
 export const FeaturedWorkData = [
   {
-    id: 1,
-    img: "/assets/images/featured-work-1.png",
+    id: "1",
+    img: "/assets/images/pizza_home.png",
+    mobileImg: "/assets/images/fastPizza.png",
     type: "E-commerce",
-    title: "ShopEase",
+    demo_link: "https://pizza-fast-project.netlify.app",
+    title: "Fast React Pizza co.",
     description:
-      "ShopEase is a digital platform that connects businesses with customers, making it easier to find and book products.",
+      "Fast React Pizza for pizza orders. Add/remove items, adjust quantities, and auto-fill address using geolocation. Built with React, Tailwind CSS, and React Router to test core skills.",
   },
   {
-    id: 2,
+    id: "2",
     img: "/assets/images/featured-work-2.png",
+    mobileImg: "/assets/images/fastPizza.png",
     type: "Social Media",
     title: "ConnectHub",
     description:
       "ConnectHub is a social media platform that connects people with their friends and family.",
   },
   {
-    id: 3,
+    id: "3",
     img: "/assets/images/featured-work-3.png",
+    mobileImg: "/assets/images/fastPizza.png",
     type: "Health & Fitness",
     title: "FitTrack",
     description:

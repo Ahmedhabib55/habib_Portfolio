@@ -37,9 +37,19 @@ const config: Config = {
           from: { opacity: "0", transform: "translate3d(0, 100%, 0)" },
           to: { opacity: "1", transform: "translate3d(0, 0, 0)" },
         },
+        slideRight: {
+          "0%": { transform: "translateX(-100px)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(50px) translateX(0)", opacity: "0" },
+          "100%": { transform: "translateY(25%) translateX(0)", opacity: "1" },
+        },
       },
       animation: {
         fadeInUp: "fadeInUp 0.6s ease-out",
+        "slide-right": "slideRight 0.8s ease-out forwards",
+        "slide-up": "slideUp 0.8s ease-out forwards",
       },
     },
   },
