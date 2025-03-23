@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface AnimatedButtonProps {
   text: string;
@@ -19,6 +20,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   size = "md",
   disabled = false,
   className = "",
+  href,
 }) => {
   const baseStyles =
     "relative overflow-hidden transition-all duration-300 ease-in-out font-medium rounded-lg border-solid_medium-gray";
@@ -35,6 +37,43 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     lg: "px-6 py-3 text-lg w-full",
   };
 
+  const buttonContent = (
+    <div className="relative">
+      {/* Default text */}
+      <span className="block transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+        {text}
+      </span>
+
+      {/* Hover text that slides up */}
+      <span className="absolute left-0 top-0 w-full translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        {hoverText || text}
+      </span>
+    </div>
+  );
+
+  // If href is provided, render as a Link
+  if (href && !disabled) {
+    return (
+      <Link
+        href={href}
+        passHref
+        className={`
+          ${baseStyles}
+          ${variants[variant]}
+          ${sizes[size]}
+          ${className}
+          group
+          inline-block text-center
+          hover:-translate-y-1 active:translate-y-0
+        `}
+        onClick={onClick}
+      >
+        {buttonContent}
+      </Link>
+    );
+  }
+
+  // Otherwise render as a regular button
   return (
     <button
       onClick={onClick}
@@ -51,17 +90,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         disabled:hover:translate-y-0
       `}
     >
-      <div className="relative">
-        {/* Default text */}
-        <span className="block transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
-          {text}
-        </span>
-
-        {/* Hover text that slides up */}
-        <span className="absolute left-0 top-0 w-full translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          {hoverText || text}
-        </span>
-      </div>
+      {buttonContent}
     </button>
   );
 };

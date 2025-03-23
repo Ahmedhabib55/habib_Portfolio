@@ -73,7 +73,7 @@ export const ThankYouEmail = ({ name }: ThankYouEmailProps) => (
       <Container style={container}>
         <div style={headerContainer}>
           <Img
-            src={`${baseUrl}/assets/images/habib_logo.jpg`}
+            src={`${baseUrl}/assets/images/habib_logo.png`}
             width="70"
             height="70"
             alt="Habib"

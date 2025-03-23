@@ -2,8 +2,8 @@ import React from "react";
 import HeaderOne from "./HeaderOne";
 import FeaturedWorkCard from "./FeaturedWorkCard";
 import { FeaturedWorkData } from "@/constants";
-import AnimatedButton from "./AnimatedButton";
 import AnimationComponent from "../AnimationComponent";
+import AnimatedButton from "./AnimatedButton";
 
 function FeaturedWork() {
   return (

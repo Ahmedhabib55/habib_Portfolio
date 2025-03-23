@@ -8,7 +8,7 @@ function layout({ children }: { children: React.ReactNode }) {
   return (
     <main className="relative flex">
       {/* Mobile Navbar */}
-      <nav className="fixed left-0 top-0 z-[39] flex w-full items-center justify-between rounded-md bg-white bg-opacity-40 bg-clip-padding px-6 backdrop-blur-md md:hidden lg:hidden">
+      <nav className="fixed left-0 top-0 z-[39] flex w-full items-center justify-between rounded-md bg-transparent  bg-opacity-40 bg-clip-padding px-6 backdrop-blur-md md:hidden lg:hidden">
         <Logo />
         <MobileNavbar />
       </nav>

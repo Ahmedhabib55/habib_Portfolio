@@ -1,5 +1,6 @@
 "use server";
 import { Resend } from "resend";
+import { render } from "@react-email/render";
 import ThankYouEmail from "../../components/emails/ThanksYouEmail";
 import ContactNotificationEmail from "../../components/emails/ContactNotificationEmail";
 
@@ -15,7 +16,7 @@ export async function sendContactMessage(formData: FormData) {
       from: "Ahmed Habib <onboarding@resend.dev>",
       to: [email],
       subject: "Thanks for Contacting!",
-      react: ThankYouEmail({ name }),
+      react: render(ThankYouEmail({ name })),
     });
 
     // Send notification email to my mail
@@ -23,7 +24,7 @@ export async function sendContactMessage(formData: FormData) {
       from: "Ahmed Habib <onboarding@resend.dev>",
       to: "ahmedabdelrazik919@gmail.com",
       subject: "New Contact Form Submission",
-      react: ContactNotificationEmail({ name, message, email }),
+      react: render(ContactNotificationEmail({ name, message, email })),
     });
 
     return { success: true };

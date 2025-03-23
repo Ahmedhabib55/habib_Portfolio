@@ -1,12 +1,12 @@
 import React from "react";
 import { PersonalInfo } from "../../../../constants";
-import AnimatedButton from "@/components/shared/AnimatedButton";
 import SkillShowCase from "@/components/SkillShowCase";
 import HeaderOne from "@/components/shared/HeaderOne";
+import AnimatedButton from "@/components/shared/AnimatedButton";
 
 const page = () => {
   return (
-    <div className=" px-24">
+    <div className="px-16 md:px-24 ">
       <HeaderOne text="About Habib" />
       <p className=" text-white">
         I’m a passionate web developer based in Mansoura, Egypt, with a knack
@@ -27,7 +27,12 @@ const page = () => {
         />
       ))}
 
-      <AnimatedButton text="Let's Talk" size="lg" hoverText="👋Let's Talk" />
+      <AnimatedButton
+        text="Let's Talk"
+        size="lg"
+        hoverText="👋Let's Talk"
+        href="/contact"
+      />
     </div>
   );
 };

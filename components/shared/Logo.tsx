@@ -1,13 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 function Logo() {
   return (
-    <Link
-      href="/"
-      className=" relative text-6xl text-white hover:text-primary-100"
-    >
-      H
+    <Link href="/">
+      <Image
+        src="/assets/images/habib_logo.png"
+        alt="habib"
+        width={75}
+        height={75}
+        className="object-cover"
+      />
     </Link>
   );
 }

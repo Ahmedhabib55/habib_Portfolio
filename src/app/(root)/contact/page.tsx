@@ -11,6 +11,7 @@ const ContactForm = () => {
   });
   const [emailError, setEmailError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,14 +40,22 @@ const ContactForm = () => {
       return;
     }
 
-    const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("message", formData.message);
+    setIsSubmitting(true);
 
-    const response = await sendContactMessage(formDataToSend);
-    if (response.success) {
-      setIsSuccess(true);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("message", formData.message);
+
+      const response = await sendContactMessage(formDataToSend);
+      if (response.success) {
+        setIsSuccess(true);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -79,7 +88,7 @@ const ContactForm = () => {
           <h2 className="animate-[fade-in_0.5s_ease-out] text-2xl font-semibold text-white">
             Message Sent Successfully!
           </h2>
-          <p className="animate-[fade-in_0.5s_ease-out] text-center text-light-gray">
+          <p className="text-light-gray animate-[fade-in_0.5s_ease-out] text-center">
             Thank you for reaching out. I&apos;ll get back to you soon!
           </p>
         </div>
@@ -87,12 +96,16 @@ const ContactForm = () => {
     );
   }
 
+  console.log("issubmit", isSubmitting);
+  console.log("isSucess", isSuccess);
+  console.log("error", emailError);
+  console.log(formData);
   return (
     <div className="mx-[125px] max-w-[800px] p-6">
       <h1 className="h1-semibold mb-3 leading-tight">
         Let&apos;s Work Together
       </h1>
-      <p className="text-sm text-light-gray">
+      <p className="text-light-gray text-sm">
         Whether you have a project in mind or just want to say hello, feel free
         to reach out at{" "}
         <Link
@@ -103,8 +116,7 @@ const ContactForm = () => {
         </Link>
         .
       </p>
-      .
-      <div className="mt-10 animate-fadeInUp">
+      <div className="animate-fadeInUp mt-10">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
             <div className="relative w-full sm:w-[48%]">
@@ -114,14 +126,15 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="peer w-full rounded-lg border bg-transparent p-4 text-white outline-none transition-all focus:border-white"
+                className="peer w-full rounded-lg border bg-transparent p-4 text-white outline-none transition-all autofill:bg-transparent focus:border-white"
                 placeholder=" "
                 required
+                disabled={isSubmitting}
               />
               <label
                 htmlFor="name"
-                className="absolute -top-3 left-4 rounded-lg  px-2 text-sm text-light-gray transition-all
-               peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black "
+                className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all
+         peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
               >
                 Name
               </label>
@@ -134,15 +147,16 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`peer w-full rounded-lg border bg-transparent p-4 text-white outline-none transition-all focus:border-white ${
+                className={`peer w-full rounded-lg border bg-transparent p-4 text-white outline-none transition-all autofill:bg-transparent focus:border-white ${
                   emailError ? "border-red-500" : ""
                 }`}
                 placeholder=" "
                 required
+                disabled={isSubmitting}
               />
               <label
                 htmlFor="email"
-                className="absolute -top-3 left-4  rounded-lg px-2  text-sm text-light-gray transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+                className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
               >
                 Email
               </label>
@@ -161,10 +175,11 @@ const ContactForm = () => {
               className="peer w-full rounded-lg border bg-transparent p-4 text-white outline-none transition-all focus:border-white"
               placeholder=" "
               required
+              disabled={isSubmitting}
             />
             <label
               htmlFor="message"
-              className="absolute -top-3 left-4 rounded-lg px-2 text-sm text-light-gray transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+              className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
             >
               Message
             </label>
@@ -172,9 +187,40 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-primary-100 px-6 py-3 text-black transition-colors hover:bg-primary-500"
+            disabled={isSubmitting}
+            className={`w-full rounded-lg px-6 py-3 transition-colors ${
+              isSubmitting
+                ? "bg-primary-100/70 cursor-not-allowed text-black/70"
+                : "bg-primary-100 hover:bg-primary-500 text-black"
+            }`}
           >
-            Send Message
+            {isSubmitting ? (
+              <div className="flex items-center justify-center">
+                <svg
+                  className="mr-2 size-5 animate-spin text-black"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Sending...
+              </div>
+            ) : (
+              "Send Message"
+            )}
           </button>
         </form>
       </div>
