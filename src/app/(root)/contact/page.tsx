@@ -12,6 +12,7 @@ const ContactForm = () => {
   const [emailError, setEmailError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,6 +35,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmissionError("");
 
     if (!validateEmail(formData.email)) {
       setEmailError("Please enter a valid email address");
@@ -49,11 +51,27 @@ const ContactForm = () => {
       formDataToSend.append("message", formData.message);
 
       const response = await sendContactMessage(formDataToSend);
-      if (response.success) {
+
+      // Check if response is successful
+      if (response && response.success) {
         setIsSuccess(true);
+        // Reset form data
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        // Handle case where response exists but success is false
+        throw new Error(response?.message || "Failed to send message");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setSubmissionError(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again later."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -61,7 +79,7 @@ const ContactForm = () => {
 
   if (isSuccess) {
     return (
-      <div className="mx-[125px] max-w-[800px] p-6">
+      <div className="mx-auto max-w-[800px] p-6 lg:mx-[125px]">
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="relative">
             {/* Outer circle with pulse animation */}
@@ -91,17 +109,19 @@ const ContactForm = () => {
           <p className="text-light-gray animate-[fade-in_0.5s_ease-out] text-center">
             Thank you for reaching out. I&apos;ll get back to you soon!
           </p>
+          {/* <button
+            onClick={() => setIsSuccess(false)}
+            className="mt-4 rounded-lg bg-blue-500 px-6 py-2 text-white transition-colors hover:bg-blue-600"
+          >
+            Send Another Message
+          </button> */}
         </div>
       </div>
     );
   }
 
-  console.log("issubmit", isSubmitting);
-  console.log("isSucess", isSuccess);
-  console.log("error", emailError);
-  console.log(formData);
   return (
-    <div className="mx-[125px] max-w-[800px] p-6">
+    <div className="max-w-[800px] p-6 lg:mx-[125px]">
       <h1 className="h1-semibold mb-3 leading-tight">
         Let&apos;s Work Together
       </h1>
@@ -116,6 +136,13 @@ const ContactForm = () => {
         </Link>
         .
       </p>
+      {/* //todo make it like toast msg */}
+      {submissionError && (
+        <div className="mt-4 rounded-lg border border-red-500 bg-red-500/20 p-3">
+          <p className="text-sm text-red-400">{submissionError}</p>
+        </div>
+      )}
+
       <div className="animate-fadeInUp mt-10">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
@@ -133,8 +160,9 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="name"
-                className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all
-         peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+                className="text-light-gray absolute -top-3 left-4 rounded-lg bg-black px-2 text-sm transition-all
+                peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-base 
+                peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
               >
                 Name
               </label>
@@ -156,7 +184,9 @@ const ContactForm = () => {
               />
               <label
                 htmlFor="email"
-                className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+                className="text-light-gray absolute -top-3 left-4 rounded-lg bg-black px-2 text-sm transition-all 
+                peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-base 
+                peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
               >
                 Email
               </label>
@@ -179,7 +209,9 @@ const ContactForm = () => {
             />
             <label
               htmlFor="message"
-              className="text-light-gray absolute -top-3 left-4 rounded-lg px-2 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
+              className="text-light-gray absolute -top-3 left-4 rounded-lg bg-black px-2 text-sm transition-all 
+              peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-base 
+              peer-focus:-top-3 peer-focus:bg-white peer-focus:text-sm peer-focus:text-black"
             >
               Message
             </label>
