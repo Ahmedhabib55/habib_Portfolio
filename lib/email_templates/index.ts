@@ -99,7 +99,7 @@ export const generateThankYouEmail = ({
         <div class="email-container">
           <div class="header-container">
             <img
-              src="${baseUrl}/assets/images/habib_logo_black.png"
+              src="${baseUrl}/assets/images/habib_logo_black.jpg"
               width="70"
               height="70"
               alt="Habib"
@@ -189,7 +189,7 @@ export const generateContactNotificationEmail = ({
         <div class="email-container">
           <div class="header-container">
             <img
-              src="${baseUrl}/assets/images/habib_logo_black.png"
+              src="${baseUrl}/assets/images/habib_logo_black.jpg"
               width="70"
               height="70"
               alt="Habib"
